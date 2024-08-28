@@ -17,8 +17,17 @@ struct OpenWindowApp: App {
         WindowGroup {
             ContentView()
         }
+        .defaultSize(width: 500, height: 500)
         WindowGroup(id: "SecondView") {
             SecondView()
         }
+        .defaultSize(CGSize(width: 300, height: 200))
+//        @available(visionOS 2.0, *)
+//            .defaultWindowPlacement { _, content in
+//                if let mainWindow = content.windows.first {
+//                    return WindowPlacement(.leading(mainWindow))
+//                }
+//                return WindowPlacement(.none)
+//            }
     }
 }
