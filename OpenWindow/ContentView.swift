@@ -14,12 +14,27 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+    @Environment(\.openWindow) var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
+    
     var body: some View {
-        VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
+        VStack(spacing: 24) {
+            Text("Window Garden 🌸")
+                .font(.extraLargeTitle2)
+            Text("Open and Close a window with an id value of 'Second View'")
+            HStack {
+                Button {
+                    openWindow(id: "SecondView")
+                } label: {
+                    Label("Open Window", systemImage: "inset.filled.center.rectangle.badge.plus")
+                }
+                Button {
+                    dismissWindow(id: "SecondView")
+                } label: {
+                    Label("Close Window", systemImage: "xmark.circle")
+                }
 
-            Text("Hello, world!")
+            }
         }
         .padding()
     }
