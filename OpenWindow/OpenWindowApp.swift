@@ -13,14 +13,19 @@ import SwiftUI
 
 @main
 struct OpenWindowApp: App {
+    
+    @State private var secondData = SecondData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+               .environment(secondData)
         }
         .defaultSize(width: 500, height: 500)
-        WindowGroup(id: "SecondView") {
-            SecondView()
-        }
+        
+        WindowGroup(id: "DetailView", for: SecondItem.self, content: { $value in
+            DetailView(item: $value)
+        })
         .defaultSize(CGSize(width: 300, height: 200))
 //        @available(visionOS 2.0, *)
 //            .defaultWindowPlacement { _, content in

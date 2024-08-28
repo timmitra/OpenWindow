@@ -11,12 +11,21 @@
 
 import SwiftUI
 
-struct SecondView: View {
+struct DetailView: View {
+    @Binding var item: SecondItem?
+    
     var body: some View {
-        Text("Hello, World!")
+        if let item = item {
+            VStack{
+                Text(item.icon)
+                Text(item.name)
+            }
+        } else {
+            Text("No item found!")
+        }
     }
 }
 
 #Preview {
-    SecondView()
+    DetailView(item: .constant(SecondItem(name: "Puppy", icon: "🐶")))
 }
