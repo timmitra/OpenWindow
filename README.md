@@ -1,6 +1,6 @@
 # OpenWindow
 
-Sample code on opening windows in a visionOS app. Based on the sample from (StepInto.vision Open and Close Widows...)[https://stepinto.vision/example-code/open-and-close-windows-in-visionos-with-swiftui/]
+Sample code on opening windows in a visionOS app. Based on the sample from [StepInto.vision Open and Close Windows...](https://stepinto.vision/example-code/open-and-close-windows-in-visionos-with-swiftui/)
 
 ## Steps
 
