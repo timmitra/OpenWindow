@@ -6,33 +6,33 @@ Sample code on opening windows in a visionOS app. Based on the sample from [Step
 
 <!-- start:code block -->
 
-# 1 - add second window
+# 1 - Create new visionOS project add second window in the App file.
 
-WindowGroup(id: "SecondView") {
-            SecondView()
+WindowGroup(id: "DetailView") {
+            DetailView()
         }
         
-# 2 - add env vars
+# 2 - add env vars to open and dismiss window
 
     @Environment(\.openWindow) var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
 
 
-# 3 - add VStack
-# add 2 buttons in HStack
+# 3 - Add or reuse the VStack
+# Add 2 buttons in HStack
 
        VStack(spacing: 24) {
             Text("Window Garden 🌸")
                 .font(.extraLargeTitle2)
-            Text("Open and Close a window with an id value of 'Second View'")
+            Text("Open and Close a window with an id value of 'DetailView'")
             HStack {
                 Button {
-                    openWindow(id: "SecondView")
+                    openWindow(id: "DetailView")
                 } label: {
                     Label("Open Window", systemImage: "inset.filled.center.rectangle.badge.plus")
                 }
                 Button {
-                    dismissWindow(id: "SecondView")
+                    dismissWindow(id: "DetailView")
                 } label: {
                     Label("Close Window", systemImage: "xmark.circle")
                 }
@@ -45,8 +45,8 @@ WindowGroup(id: "SecondView") {
             ContentView()
         }
         .defaultSize(width: 500, height: 500)
-        WindowGroup(id: "SecondView") {
-            SecondView()
+        WindowGroup(id: "DetailView") {
+            DetailView()
         }
         .defaultSize(CGSize(width: 300, height: 200))
         
