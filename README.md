@@ -6,20 +6,20 @@ Sample code on opening windows in a visionOS app. Based on the sample from [Step
 
 <!-- start:code block -->
 
-# 1 - Create new visionOS project add second window in the App file.
+## 1 - Create new visionOS project add second window in the App file.
 
 WindowGroup(id: "DetailView") {
             DetailView()
         }
         
-# 2 - add env vars to open and dismiss window
+## 2 - add env vars to open and dismiss window
 
     @Environment(\.openWindow) var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
 
 
-# 3 - Add or reuse the VStack
-# Add 2 buttons in HStack
+## 3 - Add or reuse the VStack
+## Add 2 buttons in HStack
 
        VStack(spacing: 24) {
             Text("Window Garden 🌸")
@@ -39,7 +39,7 @@ WindowGroup(id: "DetailView") {
 
             }
 
-# 4 - update window sizes, add ID to WindowGroup
+## 4 - update window sizes, add ID to WindowGroup
 
         WindowGroup {
             ContentView()
@@ -50,9 +50,9 @@ WindowGroup(id: "DetailView") {
         }
         .defaultSize(CGSize(width: 300, height: 200))
         
-# 5 - pass data
+## 5 - pass data
 
-# DataModel
+### DataModel
 
 import SwiftUI
 
@@ -73,11 +73,11 @@ class SecondData {
     ]
 }
 
-# 6 - Add env var to ContentView
+## 6 - Add env var to ContentView
 
     @Environment(SecondData.self) var secondData
 
-# 7 - add List with Button
+## 7 - add List with Button
 
             List(secondData.items) { item in
                 HStack {
@@ -92,7 +92,5 @@ class SecondData {
 
                 }
             }
-
-# 8 - rename second view Detail View
 
 <!-- end:code block -->
