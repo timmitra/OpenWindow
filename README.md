@@ -1,20 +1,25 @@
-// 1
-// add second window
+# OpenWindow
+
+Sample code on opening windows in a visionOS app. Based on the sample from (StepInto.vision Open and Close Widows...)[https://stepinto.vision/example-code/open-and-close-windows-in-visionos-with-swiftui/]
+
+## Steps
+
+<!-- start:code block -->
+
+# 1 - add second window
 
 WindowGroup(id: "SecondView") {
             SecondView()
         }
         
-// 2
-// and env vars
+# 2 - add env vars
 
     @Environment(\.openWindow) var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
 
 
-// 3
-// add VStack
-// add 2 buttons in HStack
+# 3 - add VStack
+# add 2 buttons in HStack
 
        VStack(spacing: 24) {
             Text("Window Garden 🌸")
@@ -34,8 +39,7 @@ WindowGroup(id: "SecondView") {
 
             }
 
-// 4 
-// update window sizes, add ID to WindowGroup
+# 4 - update window sizes, add ID to WindowGroup
 
         WindowGroup {
             ContentView()
@@ -46,10 +50,9 @@ WindowGroup(id: "SecondView") {
         }
         .defaultSize(CGSize(width: 300, height: 200))
         
-// 5 
-// pass data
+# 5 - pass data
 
-// DataModel
+# DataModel
 
 import SwiftUI
 
@@ -59,7 +62,6 @@ struct SecondItem: Identifiable, Codable, Hashable {
     let icon: String
 }
 
-//@MainActor
 @Observable
 class SecondData {
     var items: [SecondItem] = [
@@ -71,11 +73,11 @@ class SecondData {
     ]
 }
 
-// env var
+# 6 - Add env var to ContentView
 
     @Environment(SecondData.self) var secondData
 
-// add List with Button
+# 7 - add List with Button
 
             List(secondData.items) { item in
                 HStack {
@@ -91,4 +93,6 @@ class SecondData {
                 }
             }
 
-// rename second view Detail View
+# 8 - rename second view Detail View
+
+<!-- end:code block -->
